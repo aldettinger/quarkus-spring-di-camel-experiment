@@ -19,13 +19,14 @@ import javax.enterprise.context.ApplicationScoped;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * A "camel-quarkus" application using "quarkus-spring-di"
  */
-//@SpringBootApplication could be translated into @ApplicationScoped in this case
+//@SpringBootApplication could be translated into @ApplicationScoped in this case but this transformation can't be generalized.
 @ApplicationScoped
-//@ImportResource({"classpath:spring/camel-context.xml"}) // @TODO: experiment around this
+@ImportResource(locations={"classpath:spring/camel-context.xml"}) // It is ignored at runtime, so ok. However, there is no build time error reported, is it misleading for users ?
 public class Application extends RouteBuilder {
 
     @Autowired

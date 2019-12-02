@@ -50,6 +50,10 @@
 			<groupId>${quarkus.platform.group-id}</groupId>
 			<artifactId>quarkus-spring-di</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-smallrye-health</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
