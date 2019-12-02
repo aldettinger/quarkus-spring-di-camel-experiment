@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.apache.aldettinger</groupId>
+	<artifactId>quarkus-spring-di-camel-experiment</artifactId>
+	<version>0.0.1</version>
+
+	<name>Quarkus Spring Dependency Injection with Camel Experiment</name>
+	<description></description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<camel.quarkus.group-id>org.apache.camel.quarkus</camel.quarkus.group-id>
+		<quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${quarkus.platform.group-id}</groupId>
+				<artifactId>quarkus-universe-bom</artifactId>
+				<version>1.0.0.Final</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>${camel.quarkus.group-id}</groupId>
+			<artifactId>camel-quarkus-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${camel.quarkus.group-id}</groupId>
+			<artifactId>camel-quarkus-timer</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${camel.quarkus.group-id}</groupId>
+			<artifactId>camel-quarkus-bean</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${quarkus.platform.group-id}</groupId>
+			<artifactId>quarkus-spring-di</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>${quarkus.platform.group-id}</groupId>
+				<artifactId>quarkus-maven-plugin</artifactId>
+				<version>1.0.0.Final</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
